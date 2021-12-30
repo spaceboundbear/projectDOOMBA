@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
+import { Card, Container, Button, Row, Col } from 'react-bootstrap';
 
 function RobotButtons() {
   const [newSocket, setSocket] = useState(null);
@@ -86,22 +87,36 @@ function RobotButtons() {
   }, [setSocket]);
 
   return (
-    <div className="buttons">
-      <button className="m-1 btn btn-primary" onClick={Forward}>
-        FORWARD
-      </button>
-      <button className="m-1 btn btn-primary" onClick={Backward}>
-        BACKWARD
-      </button>
-      <button className="m-1 btn btn-primary" onClick={Left}>
-        LEFT
-      </button>
-      <button className="m-1 btn btn-primary" onClick={Right}>
-        RIGHT
-      </button>
-      <button className="m-1 btn btn-danger" onClick={Stop}>
-        STOP
-      </button>
+    <div className="buttons text-center">
+      <Container className="bg-dark text-center">
+        <Row className="bg-dark">
+          <Col>
+            <Button size="lg" className="m-1 btn btn-primary" onClick={Forward}>
+              FORWARD
+            </Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <button className="m-1 btn btn-primary" onClick={Left}>
+              LEFT
+            </button>
+            <button className="m-1 btn btn-danger" onClick={Stop}>
+              STOP
+            </button>
+            <button className="m-1 btn btn-primary" onClick={Right}>
+              RIGHT
+            </button>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <button className="m-1 btn btn-primary" onClick={Backward}>
+              BACKWARD
+            </button>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
