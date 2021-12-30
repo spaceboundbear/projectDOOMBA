@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
 import { Card, Container, Button, Row, Col } from 'react-bootstrap';
+import { render } from '@testing-library/react';
 
 function RobotButtons() {
   const [newSocket, setSocket] = useState(null);
@@ -87,37 +88,35 @@ function RobotButtons() {
   }, [setSocket]);
 
   return (
-    <div className="buttons text-center">
-      <Container className="bg-dark text-center">
-        <Row className="bg-dark">
-          <Col>
-            <Button size="lg" className="m-1 btn btn-primary" onClick={Forward}>
-              FORWARD
-            </Button>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <button className="m-1 btn btn-primary" onClick={Left}>
-              LEFT
-            </button>
-            <button className="m-1 btn btn-danger" onClick={Stop}>
-              STOP
-            </button>
-            <button className="m-1 btn btn-primary" onClick={Right}>
-              RIGHT
-            </button>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <button className="m-1 btn btn-primary" onClick={Backward}>
-              BACKWARD
-            </button>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+    <Card className="drive-buttons bg-dark buttons container text-center w-50">
+      <Row className="bg-dark">
+        <Col className="bg-dark">
+          <Button size="lg" className="m-3 btn btn-primary" onClick={Forward}>
+            FORWARD
+          </Button>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Button size="lg" className="m-2 btn btn-primary" onClick={Left}>
+            LEFT
+          </Button>
+          <Button className="m-2 btn btn-danger" onClick={Stop}>
+            STOP
+          </Button>
+          <Button size="lg" className="m-2 btn btn-primary" onClick={Right}>
+            RIGHT
+          </Button>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Button size="lg" className="m-3 btn btn-primary" onClick={Backward}>
+            BACKWARD
+          </Button>
+        </Col>
+      </Row>
+    </Card>
   );
 }
 
