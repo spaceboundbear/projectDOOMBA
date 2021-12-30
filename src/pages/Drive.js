@@ -1,14 +1,19 @@
 import RobotButtons from '../components/RobotButtons';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import RobotVideo from '../components/RobotVideo';
+import { Card, Container, Row, Image } from 'react-bootstrap';
 
 function Drive() {
   return (
-    <div>
-      <h1 className="text-center">DRIVE TIME</h1>
-      <div className="text-center">
-        <RobotButtons />
-      </div>
-    </div>
+    <>
+      <Container className="w-auto">
+        <Card.Body className="justify-content-md-center ">
+          <div>
+            <RobotButtons />
+          </div>
+        </Card.Body>
+      </Container>
+    </>
   );
 }
 

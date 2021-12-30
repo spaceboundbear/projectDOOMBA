@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 
 function Header() {
   return (
-    <Navbar bg="dark" variant="dark" className="sticky-top">
+    <Navbar bg="danger" variant="dark" className="sticky-top">
       <Container>
         <Navbar.Brand className="d-none d-sm-block" to="/about">
           project.DOOMBA
@@ -21,6 +21,12 @@ function Header() {
           </NavLink>
           <NavLink className="nav-link" to="/data">
             DATA
+          </NavLink>
+          <NavLink className="nav-link" to="/history">
+            HISTORY
+          </NavLink>
+          <NavLink className="nav-link" to="/signout">
+            SIGN OUT
           </NavLink>
         </Nav>
       </Container>

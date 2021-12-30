@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
-import { Card, Container, Button, Row, Col } from 'react-bootstrap';
-import { render } from '@testing-library/react';
+import { Card, Button, Row, Col, Container, Image } from 'react-bootstrap';
 
 function RobotButtons() {
   const [newSocket, setSocket] = useState(null);
@@ -88,35 +87,61 @@ function RobotButtons() {
   }, [setSocket]);
 
   return (
-    <Card className="drive-buttons bg-dark buttons container text-center w-50">
-      <Row className="bg-dark">
-        <Col className="bg-dark">
-          <Button size="lg" className="m-3 btn btn-primary" onClick={Forward}>
-            FORWARD
-          </Button>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <Button size="lg" className="m-2 btn btn-primary" onClick={Left}>
-            LEFT
-          </Button>
-          <Button className="m-2 btn btn-danger" onClick={Stop}>
-            STOP
-          </Button>
-          <Button size="lg" className="m-2 btn btn-primary" onClick={Right}>
-            RIGHT
-          </Button>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <Button size="lg" className="m-3 btn btn-primary" onClick={Backward}>
-            BACKWARD
-          </Button>
-        </Col>
-      </Row>
-    </Card>
+    <>
+      <Card className="drive-buttons bg-secondary buttons container text-center col-sm-8">
+        <Image
+          className="py-2 w-auto"
+          src="http://placehold.jp/720x480.png"
+        ></Image>
+        <Row className="">
+          <Col className="">
+            <Button
+              size="lg"
+              className="m-3 btn btn-dark col-sm-3"
+              onClick={Forward}
+            >
+              FORWARD
+            </Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Button
+              size="lg"
+              className="m-2 btn btn-dark col-sm-2"
+              onClick={Left}
+            >
+              LEFT
+            </Button>
+            <Button
+              size="lg"
+              className="m-2 btn btn-danger col-sm-2"
+              onClick={Stop}
+            >
+              STOP
+            </Button>
+            <Button
+              size="lg"
+              className="m-2 btn btn-dark col-sm-2"
+              onClick={Right}
+            >
+              RIGHT
+            </Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Button
+              size="lg"
+              className="m-3 btn btn-dark col-sm-3"
+              onClick={Backward}
+            >
+              BACKWARD
+            </Button>
+          </Col>
+        </Row>
+      </Card>
+    </>
   );
 }
 

@@ -8,7 +8,7 @@ import App from './App';
 ReactDOM.render(
   <BrowserRouter>
     <App />
-    <ParticlesBg type="cobweb" />
+    <ParticlesBg type="cobweb" bg={true} />
   </BrowserRouter>,
 
   document.getElementById('root')
