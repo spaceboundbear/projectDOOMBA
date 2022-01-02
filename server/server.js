@@ -1,21 +1,40 @@
 const express = require('express');
+const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
-const { createServer } = require('http');
-const { Server } = require('socket.io');
+const socketIO = require('socket.io');
+
+const { typeDefs, resolvers } = require('./schemas');
+const db = require('./config/connection');
+
+const PORT = process.env.PORT || 3005;
 const app = express();
 
-const httpServer = createServer(app);
-const io = new Server(httpServer, {
-  cors: {
-    origin: '*',
-  },
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
 });
 
-const PORT = process.env.PORT || 3001;
+const io = socketIO(server);
+
+server.applyMiddleware({ app });
+
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+
+db.once('open', () => {
+  app.listen(PORT, () => {
+    console.log(`API server running on port ${PORT}!`);
+    console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
+  });
+});
 
 io.on('connection', (socket) => {
   console.log('NEW CONNECTION ESTABLISHED');
@@ -34,5 +53,3 @@ io.on('connection', (socket) => {
     console.log(angle);
   });
 });
-
-httpServer.listen(PORT);

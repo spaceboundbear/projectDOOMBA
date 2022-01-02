@@ -1,7 +1,6 @@
 import RobotButtons from '../components/RobotButtons';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import RobotVideo from '../components/RobotVideo';
-import { Card, Container, Row, Image } from 'react-bootstrap';
+import { Card, Container } from 'react-bootstrap';
 
 function Drive() {
   return (
