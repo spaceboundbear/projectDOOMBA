@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
-import { Card, Button, Row, Col, Container, Image } from 'react-bootstrap';
+import { Card, Button, Row, Col, Image } from 'react-bootstrap';
 
 function RobotButtons() {
   const [newSocket, setSocket] = useState(null);
@@ -89,10 +89,10 @@ function RobotButtons() {
   return (
     <>
       <Card className="drive-buttons bg-secondary buttons container text-center col-sm-8">
-        <Image
-          className="py-2 w-auto"
-          src="http://placehold.jp/720x480.png"
-        ></Image>
+        <img
+          className="mt-3"
+          src="http://70.121.160.191:8080/?action=stream"
+        ></img>
         <Row className="">
           <Col className="">
             <Button
