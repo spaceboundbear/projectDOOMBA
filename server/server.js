@@ -28,6 +28,11 @@ io.on('connection', (socket) => {
   socket.on('robot', (data) => {
     console.log(data);
   });
+
+  socket.on('angle', (angle) => {
+    io.emit('angle', angle);
+    console.log(angle);
+  });
 });
 
 httpServer.listen(PORT);
