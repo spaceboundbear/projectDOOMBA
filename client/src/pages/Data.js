@@ -1,4 +1,4 @@
-import { Container, Card, Button } from 'react-bootstrap';
+import { Container, Card, ListGroup } from 'react-bootstrap';
 import React from 'react';
 
 function Data() {
@@ -6,17 +6,20 @@ function Data() {
     <Container className="w-75">
       <Card className="mt-5 bg-dark text-light">
         <Card.Body>
-          <Card.Title className="fw-bold fs-1 m-4 text-center">DATA</Card.Title>
-
-          <ul className="list-group">
-            <li className="list-group-item">Left Bumps: {5}</li>
-            <li className="list-group-item">Right Bumps: {10} mins</li>
-            <li className="list-group-item">Stops Made: {20}</li>
-          </ul>
-
-          <Button size="lg" className="col-sm-12 my-4 mb-2 btn btn-primary ">
-            SAVE RUN
-          </Button>
+          <h1 className="m-3 text-center font-weight-bold">CHALLENGES</h1>
+          <ListGroup className="text-center">
+            <ListGroup.Item variant="dark">
+              Multiple Socket Clients
+            </ListGroup.Item>
+            <ListGroup.Item variant="dark">
+              Integrating SerialPort with rPi
+            </ListGroup.Item>
+            <ListGroup.Item variant="dark">Live View Camera</ListGroup.Item>
+            <ListGroup.Item variant="dark">Fully Wireless Setup</ListGroup.Item>
+            <ListGroup.Item variant="dark">
+              Combining SocketIO, React, and Apollo
+            </ListGroup.Item>
+          </ListGroup>
         </Card.Body>
       </Card>
     </Container>

@@ -3,7 +3,9 @@ import { io } from 'socket.io-client';
 import { Card, Button, Row, Col } from 'react-bootstrap';
 
 function RobotButtons() {
+  const [newSocket, setSocket] = useState(null);
   const socket = io(`http://localhost:3001`);
+  console.log(newSocket);
 
   window.addEventListener(
     'keydown',
@@ -73,6 +75,16 @@ function RobotButtons() {
     socket.emit('move', 'right');
     console.log('right command emitted');
   }
+
+  useEffect(() => {
+    const socket = io(`http://localhost:3001`);
+    setSocket(socket);
+    socket.on('connect', () => {
+      console.log('SOCKET CONNECTED');
+    });
+
+    return () => socket.close();
+  }, [setSocket]);
 
   return (
     <>

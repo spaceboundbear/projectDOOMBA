@@ -1,13 +1,14 @@
 import { Card, Container } from 'react-bootstrap';
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Home() {
   return (
     <Container className="w-auto">
       <Card className="mt-5 bg-dark text-light">
         <Card.Body>
-          <h1 className="m-4">WELCOME TO project.DOOMBA</h1>
-          <Card.Text className="fw-bolder mt-4 fs-1 m-4">
+          <h1 className="m-4 font-weight-bold">WELCOME TO project.DOOMBA</h1>
+          <p className=" mt-4 h4 m-4">
             The world is coming to an end, and it is by our own hands.
             Microsoft's new technology of microchipped Windows.11 and forced
             updates to oneDrive triggered The Robot Uprising, and there seems to
@@ -19,7 +20,7 @@ function Home() {
             pilot the monster they had created. Jeremy, you are the only man fit
             to pilot, and the only one who can save us from the EDGE.bots. Good
             luck, and God Speed.
-          </Card.Text>
+          </p>
         </Card.Body>
       </Card>
     </Container>

@@ -1,17 +1,74 @@
-import { Container, Card } from 'react-bootstrap';
+import { Container, Card, ListGroup, Row, Col } from 'react-bootstrap';
+import TechCards from '../components/techCards';
 import React from 'react';
+import tech from '../tech';
 
 function Info() {
   return (
-    <Container className="w-75">
+    <Container className="w-100 bg-none">
       <Card className="mt-5 bg-dark text-light">
         <Card.Body>
-          <Card.Title className="fw-bold fs-1 m-4 text-center">
-            RUN HISTORY
-          </Card.Title>
-          <Card.Text className="mt-4 fs-4 m-4"></Card.Text>
+          <h1 className="m-3 text-center font-weight-bold">TECH USED</h1>
+          <div className="grid-container d-flex flex-wrap">
+            {tech.map((technology) => (
+              <TechCards
+                key={technology.id}
+                id={technology.id}
+                icon={technology.icon}
+                name={technology.name}
+              />
+            ))}
+          </div>
         </Card.Body>
       </Card>
+      <Row>
+        <Col xs={6}>
+          <Card className="mt-3 bg-dark text-light">
+            <Card.Body>
+              <h2 className="m-3 text-center font-weight-bold">CHALLENGES</h2>
+              <ListGroup className="text-center">
+                <ListGroup.Item variant="dark">
+                  Multiple Socket Clients
+                </ListGroup.Item>
+                <ListGroup.Item variant="dark">
+                  Integrating SerialPort with rPi
+                </ListGroup.Item>
+                <ListGroup.Item variant="dark">Live View Camera</ListGroup.Item>
+                <ListGroup.Item variant="dark">
+                  Fully Wireless Setup
+                </ListGroup.Item>
+                <ListGroup.Item variant="dark">
+                  Combining SocketIO, React, and Apollo
+                </ListGroup.Item>
+              </ListGroup>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col xs={6}>
+          <Card className="mt-3 bg-dark text-light">
+            <Card.Body>
+              <h2 className="m-3 text-center font-weight-bold">
+                FUTURE DEVELOPMENT
+              </h2>
+              <ListGroup className="text-center">
+                <ListGroup.Item variant="success">
+                  Live Grid Updates
+                </ListGroup.Item>
+                <ListGroup.Item variant="success">Game Modes</ListGroup.Item>
+                <ListGroup.Item variant="success">
+                  Docking Robot When Run Ends
+                </ListGroup.Item>
+                <ListGroup.Item variant="success">
+                  Roomba BattleBots Revival
+                </ListGroup.Item>
+                <ListGroup.Item variant="success">
+                  Replacing Brush With Circular Saw
+                </ListGroup.Item>
+              </ListGroup>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
     </Container>
   );
 }

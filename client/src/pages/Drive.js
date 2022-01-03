@@ -1,11 +1,12 @@
-import RobotButtons from '../components/RobotButtons';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card, Container, Button, Row, Col } from 'react-bootstrap';
+import { Card, Button, Row, Col } from 'react-bootstrap';
 
 function Drive() {
-  const socket = io(`http://localhost:3001`);
+  const [newSocket, setSocket] = useState(null);
+  const socket = io(`http://localhost:3000`);
+  console.log(newSocket);
 
   window.addEventListener(
     'keydown',
@@ -75,6 +76,14 @@ function Drive() {
     socket.emit('move', 'right');
     console.log('right command emitted');
   }
+  useEffect(() => {
+    const socket = io(`http://localhost:3000`);
+    setSocket(socket);
+    socket.on('connect', () => {
+      console.log('SOCKET CONNECTED');
+    });
+  }, [setSocket]);
+
   return (
     <>
       <Card.Body className="justify-content-md-center ">

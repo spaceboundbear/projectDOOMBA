@@ -1,25 +1,22 @@
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
-const socketIO = require('socket.io');
 var cors = require('cors');
+const app = express();
+const socketio = require('socket.io');
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 const { authMiddleware } = require('./utils/auth');
 
 const PORT = process.env.PORT || 3001;
-const app = express();
 
 const server = new ApolloServer({
+  cors: true,
   typeDefs,
   resolvers,
   context: authMiddleware,
 });
-
-const io = socketIO(server);
-
-app.use(cors());
 
 server.applyMiddleware({ app });
 
@@ -35,26 +32,28 @@ app.get('*', (req, res) => {
 });
 
 db.once('open', () => {
-  app.listen(PORT, () => {
+  const http = app.listen(PORT, () => {
     console.log(`API server running on port ${PORT}!`);
     console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
   });
-});
 
-io.on('connection', (socket) => {
-  console.log('NEW CONNECTION ESTABLISHED');
+  const io = socketio(http);
 
-  socket.on('move', (data) => {
-    io.emit('move', data);
-    console.log(data);
-  });
+  io.on('connection', (socket) => {
+    console.log('NEW CONNECTION ESTABLISHED');
 
-  socket.on('robot', (data) => {
-    console.log(data);
-  });
+    socket.on('move', (data) => {
+      io.emit('move', data);
+      console.log(data);
+    });
 
-  socket.on('angle', (angle) => {
-    io.emit('angle', angle);
-    console.log(angle);
+    socket.on('robot', (data) => {
+      console.log(data);
+    });
+
+    socket.on('angle', (angle) => {
+      io.emit('angle', angle);
+      console.log(angle);
+    });
   });
 });
