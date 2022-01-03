@@ -4,7 +4,7 @@ import { SiTwitter, SiLinkedin } from 'react-icons/si';
 
 function Footer() {
   return (
-    <footer className="w-100 mt-auto bg-dark p-3 footer fixed-bottom">
+    <footer className="w-100 mt-auto bg-danger p-3 footer fixed-bottom">
       <div className=" text-light justify-content-center d-flex ">
         <a
           href="https://github.com/spaceboundbear"
@@ -16,7 +16,7 @@ function Footer() {
             <AiFillGithub />
           </h4>
         </a>
-        <div className="px-2"></div>
+        <div className="px-4"></div>
         <a
           href="https://twitter.com/spaceboundbear"
           target="_blank"
@@ -27,7 +27,7 @@ function Footer() {
             <SiTwitter />
           </h4>
         </a>
-        <div className="px-2"></div>
+        <div className="px-4"></div>
         <a
           href="https://linkedin.com/in/michael-fischer-webdev/"
           target="_blank"

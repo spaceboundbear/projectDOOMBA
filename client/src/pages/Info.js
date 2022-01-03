@@ -1,14 +1,14 @@
 import { Container, Card, ListGroup, Row, Col } from 'react-bootstrap';
 import TechCards from '../components/techCards';
 import React from 'react';
-import tech from '../tech';
+import tech from '../components/tech';
 
 function Info() {
   return (
     <Container className="w-100 bg-none">
       <Card className="mt-5 bg-dark text-light">
         <Card.Body>
-          <h1 className="m-3 text-center font-weight-bold">TECH USED</h1>
+          <h1 className="mt-2 text-center font-weight-bold">TECH USED</h1>
           <div className="grid-container d-flex flex-wrap">
             {tech.map((technology) => (
               <TechCards
@@ -25,7 +25,7 @@ function Info() {
         <Col xs={6}>
           <Card className="mt-3 bg-dark text-light">
             <Card.Body>
-              <h2 className="m-3 text-center font-weight-bold">CHALLENGES</h2>
+              <h2 className="m-2 text-center font-weight-bold">CHALLENGES</h2>
               <ListGroup className="text-center">
                 <ListGroup.Item variant="dark">
                   Multiple Socket Clients
@@ -47,7 +47,7 @@ function Info() {
         <Col xs={6}>
           <Card className="mt-3 bg-dark text-light">
             <Card.Body>
-              <h2 className="m-3 text-center font-weight-bold">
+              <h2 className="m-2 text-center font-weight-bold">
                 FUTURE DEVELOPMENT
               </h2>
               <ListGroup className="text-center">

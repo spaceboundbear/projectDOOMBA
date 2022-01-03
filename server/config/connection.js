@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/doombadb', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/doomba-time', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,

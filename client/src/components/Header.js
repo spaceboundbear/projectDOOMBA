@@ -60,12 +60,16 @@ function Header() {
         <Tab.Container defaultActiveKey="login">
           <Modal.Header closeButton>
             <Modal.Title id="signup-modal">
-              <Nav variant="pills">
+              <Nav>
                 <Nav.Item>
-                  <Nav.Link eventKey="login">Login</Nav.Link>
+                  <Nav.Link className="text-danger" eventKey="login">
+                    Login
+                  </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="signup">Sign Up</Nav.Link>
+                  <Nav.Link className="text-danger" eventKey="signup">
+                    Sign Up
+                  </Nav.Link>
                 </Nav.Item>
               </Nav>
             </Modal.Title>

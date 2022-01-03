@@ -6,7 +6,7 @@ function Data() {
     <Container className="w-75">
       <Card className="mt-5 bg-dark text-light">
         <Card.Body>
-          <h1 className="m-3 text-center font-weight-bold">CHALLENGES</h1>
+          <h1 className="m-3 text-center font-weight-bold">DATA</h1>
           <ListGroup className="text-center">
             <ListGroup.Item variant="dark">
               Multiple Socket Clients

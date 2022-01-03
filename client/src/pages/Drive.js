@@ -97,7 +97,7 @@ function Drive() {
             <Col className="">
               <Button
                 size="lg"
-                className="m-3 btn btn-dark col-sm-3"
+                className="m-3 btn btn-dark col-sm-6"
                 onClick={Forward}
               >
                 FORWARD
@@ -133,7 +133,7 @@ function Drive() {
             <Col>
               <Button
                 size="lg"
-                className="m-3 btn btn-dark col-sm-3"
+                className="m-3 btn btn-dark col-sm-6"
                 onClick={Backward}
               >
                 BACKWARD
