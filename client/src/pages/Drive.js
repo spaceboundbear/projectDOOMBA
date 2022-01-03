@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button, Row, Col } from 'react-bootstrap';
+import Data from '../components/RobotData';
 
 function Drive() {
   const [newSocket, setSocket] = useState(null);
@@ -86,62 +87,84 @@ function Drive() {
 
   return (
     <>
-      <Card.Body className="justify-content-md-center ">
-        <Card className="drive-buttons bg-secondary buttons container text-center col-sm-8">
-          <img
-            className="mt-3"
-            src="http://70.121.160.191:8080/?action=stream"
-            alt="stream"
-          ></img>
-          <Row className="">
-            <Col className="">
-              <Button
-                size="lg"
-                className="m-3 btn btn-dark col-sm-6"
-                onClick={Forward}
-              >
-                FORWARD
-              </Button>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <Button
-                size="lg"
-                className="m-2 btn btn-dark col-sm-2"
-                onClick={Left}
-              >
-                LEFT
-              </Button>
-              <Button
-                size="lg"
-                className="m-2 btn btn-danger col-sm-2"
-                onClick={Stop}
-              >
-                STOP
-              </Button>
-              <Button
-                size="lg"
-                className="m-2 btn btn-dark col-sm-2"
-                onClick={Right}
-              >
-                RIGHT
-              </Button>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <Button
-                size="lg"
-                className="m-3 btn btn-dark col-sm-6"
-                onClick={Backward}
-              >
-                BACKWARD
-              </Button>
-            </Col>
-          </Row>
-        </Card>
-      </Card.Body>
+      <Row className="mt-3">
+        <Col>
+          <Card.Body className="justify-content-md-center ">
+            <Card className="col-sm-10 bg-secondary buttons container text-center">
+              <img
+                className="mt-3"
+                src="http://70.121.160.191:8080/?action=stream"
+                alt="stream"
+              ></img>
+            </Card>
+          </Card.Body>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Card.Body className="justify-content-md-center">
+            <Card className="drive-buttons bg-dark buttons container text-center">
+              <Row className="mt-2">
+                <Col className="">
+                  <Button
+                    size="lg"
+                    className="m-3 btn btn-secondary col-sm-6"
+                    onClick={Forward}
+                  >
+                    FORWARD
+                  </Button>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <Button
+                    size="lg"
+                    className="m-2 btn btn-secondary col-sm-3"
+                    onClick={Left}
+                  >
+                    LEFT
+                  </Button>
+                  <Button
+                    size="lg"
+                    className="m-2 btn btn-danger col-sm-3"
+                    onClick={Stop}
+                  >
+                    STOP
+                  </Button>
+                  <Button
+                    size="lg"
+                    className="m-2 btn btn-secondary col-sm-3"
+                    onClick={Right}
+                  >
+                    RIGHT
+                  </Button>
+                </Col>
+              </Row>
+              <Row>
+                <Col className="pb-2">
+                  <Button
+                    size="lg"
+                    className="m-3 btn btn-secondary col-sm-6"
+                    onClick={Backward}
+                  >
+                    BACKWARD
+                  </Button>
+                </Col>
+              </Row>
+            </Card>
+          </Card.Body>
+        </Col>
+        <Col>
+          <Card.Body className="justify-content-md-center ">
+            <Card className="drive-buttons bg-dark buttons container">
+              <h1 className="m-3 text-center text-light font-weight-bold">
+                DATA
+              </h1>
+              <Data />
+            </Card>
+          </Card.Body>
+        </Col>
+      </Row>
     </>
   );
 }

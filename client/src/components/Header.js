@@ -29,10 +29,6 @@ function Header() {
                 <NavLink className="nav-link" to="/drive">
                   DRIVE
                 </NavLink>
-                <NavLink className="nav-link" to="/data">
-                  DATA
-                </NavLink>
-
                 <Nav.Link onClick={Auth.logout} className="nav-link">
                   SIGN OUT
                 </Nav.Link>

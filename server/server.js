@@ -1,7 +1,6 @@
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
-var cors = require('cors');
 const app = express();
 const socketio = require('socket.io');
 
@@ -54,6 +53,21 @@ db.once('open', () => {
     socket.on('angle', (angle) => {
       io.emit('angle', angle);
       console.log(angle);
+    });
+
+    socket.on('speed', (speed) => {
+      io.emit('speed', speed);
+      console.log(speed);
+    });
+
+    socket.on('bumpLeft', (left) => {
+      io.emit('bumpLeft', left);
+      console.log(left);
+    });
+
+    socket.on('bumpRight', (right) => {
+      io.emit('bumpRight', right);
+      console.log(right);
     });
   });
 });

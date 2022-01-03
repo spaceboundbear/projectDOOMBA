@@ -59,7 +59,7 @@ function Info() {
                   Docking Robot When Run Ends
                 </ListGroup.Item>
                 <ListGroup.Item variant="success">
-                  Roomba BattleBots Revival
+                  More Data Output
                 </ListGroup.Item>
                 <ListGroup.Item variant="success">
                   Replacing Brush With Circular Saw
