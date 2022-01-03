@@ -7,7 +7,7 @@ export default function Data() {
   let [speed, setSpeed] = useState(0);
   let [angle, setAngle] = useState(0);
 
-  const socket = io(`http://localhost:3000`);
+  const socket = io();
 
   useEffect(() => {
     socket.on('bumpLeft', () => {
