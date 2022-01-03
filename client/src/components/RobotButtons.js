@@ -1,11 +1,9 @@
 import { React, useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
-import { Card, Button, Row, Col, Image } from 'react-bootstrap';
+import { Card, Button, Row, Col } from 'react-bootstrap';
 
 function RobotButtons() {
-  const [newSocket, setSocket] = useState(null);
   const socket = io(`http://localhost:3001`);
-  console.log(newSocket);
 
   window.addEventListener(
     'keydown',
@@ -76,22 +74,13 @@ function RobotButtons() {
     console.log('right command emitted');
   }
 
-  useEffect(() => {
-    const socket = io(`http://localhost:3001`);
-    setSocket(socket);
-    socket.on('connect', () => {
-      console.log('SOCKET CONNECTED');
-    });
-
-    return () => socket.close();
-  }, [setSocket]);
-
   return (
     <>
       <Card className="drive-buttons bg-secondary buttons container text-center col-sm-8">
         <img
           className="mt-3"
           src="http://70.121.160.191:8080/?action=stream"
+          alt="stream"
         ></img>
         <Row className="">
           <Col className="">

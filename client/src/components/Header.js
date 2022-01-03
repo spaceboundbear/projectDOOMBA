@@ -1,50 +1,88 @@
-import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import React, { useState } from 'react';
+import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import { NavLink } from 'react-router-dom';
 import Auth from '../utils/auth';
 
+import SignUpForm from './SignupForm';
+import LoginForm from './LoginForm';
+
 function Header() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
-    <Navbar bg="danger" variant="dark" className="sticky-top">
-      <Container>
-        <Navbar.Brand className="d-none d-sm-block" to="/about">
-          project.DOOMBA
-        </Navbar.Brand>
-        <Nav className="justify-content-end  mx-auto mx-md-0">
-          <NavLink className="nav-link" to="/home">
-            HOME
-          </NavLink>
-          {Auth.loggedIn() ? (
-            <>
-              <NavLink className="nav-link" to="/drive">
-                DRIVE
-              </NavLink>
-              <NavLink className="nav-link" to="/data">
-                DATA
-              </NavLink>
-              <NavLink className="nav-link" to="/history">
-                HISTORY
-              </NavLink>
-              <NavLink className="nav-link" to="/signout">
-                SIGN OUT
-              </NavLink>
-            </>
-          ) : (
-            <>
-              <NavLink className="nav-link" to="/login">
-                LOGIN
-              </NavLink>
-              <NavLink className="nav-link" to="/signup">
-                SIGNUP
-              </NavLink>
-            </>
-          )}
-        </Nav>
-      </Container>
-    </Navbar>
+    <>
+      <Navbar bg="danger" variant="dark" className="sticky-top">
+        <Container>
+          <Navbar.Brand className="d-none d-sm-block" to="/about">
+            project.DOOMBA
+          </Navbar.Brand>
+          <Nav className="justify-content-end  mx-auto mx-md-0">
+            <NavLink className="nav-link" to="/home">
+              HOME
+            </NavLink>
+            <NavLink className="nav-link" to="/info">
+              INFO
+            </NavLink>
+            {Auth.loggedIn() ? (
+              <>
+                <NavLink className="nav-link" to="/drive">
+                  DRIVE
+                </NavLink>
+                <NavLink className="nav-link" to="/data">
+                  DATA
+                </NavLink>
+
+                <Nav.Link onClick={Auth.logout} className="nav-link">
+                  SIGN OUT
+                </Nav.Link>
+              </>
+            ) : (
+              <>
+                <Nav.Link
+                  onClick={() => setShowModal(true)}
+                  className="nav-link"
+                >
+                  LOGIN/SIGN UP
+                </Nav.Link>
+              </>
+            )}
+          </Nav>
+        </Container>
+      </Navbar>
+      <Modal
+        size="lg"
+        show={showModal}
+        onHide={() => setShowModal(false)}
+        aria-labelledby="signup-modal"
+      >
+        {/* tab container to do either signup or login component */}
+        <Tab.Container defaultActiveKey="login">
+          <Modal.Header closeButton>
+            <Modal.Title id="signup-modal">
+              <Nav variant="pills">
+                <Nav.Item>
+                  <Nav.Link eventKey="login">Login</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="signup">Sign Up</Nav.Link>
+                </Nav.Item>
+              </Nav>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Tab.Content>
+              <Tab.Pane eventKey="login">
+                <LoginForm handleModalClose={() => setShowModal(false)} />
+              </Tab.Pane>
+              <Tab.Pane eventKey="signup">
+                <SignUpForm handleModalClose={() => setShowModal(false)} />
+              </Tab.Pane>
+            </Tab.Content>
+          </Modal.Body>
+        </Tab.Container>
+      </Modal>
+    </>
   );
 }
 

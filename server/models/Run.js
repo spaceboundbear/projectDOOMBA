@@ -3,7 +3,6 @@ const { Schema } = require('mongoose');
 const runSchema = new Schema({
   runId: {
     type: String,
-    required: true,
   },
   date: {
     type: Date,
@@ -11,7 +10,6 @@ const runSchema = new Schema({
   },
   duration: {
     type: Number,
-    required: true,
   },
   bumpLeft: {
     type: Number,

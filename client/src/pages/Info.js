@@ -1,6 +1,7 @@
 import { Container, Card } from 'react-bootstrap';
+import React from 'react';
 
-function History() {
+function Info() {
   return (
     <Container className="w-75">
       <Card className="mt-5 bg-dark text-light">
@@ -15,4 +16,4 @@ function History() {
   );
 }
 
-export default History;
+export default Info;
