@@ -6,7 +6,7 @@ import Data from '../components/RobotData';
 
 function Drive() {
   const [newSocket, setSocket] = useState(null);
-  const socket = io();
+  const socket = io(process.env.SOCKET_URI || 'http://localhost:3000');
   console.log(newSocket);
 
   window.addEventListener(
@@ -78,7 +78,7 @@ function Drive() {
     console.log('right command emitted');
   }
   useEffect(() => {
-    const socket = io(`https://vroomba-time.herokuapp.com/`);
+    const socket = io(process.env.SOCKET_URI || 'http://localhost:3000');
     setSocket(socket);
     socket.on('connect', () => {
       console.log('SOCKET CONNECTED');
@@ -87,12 +87,12 @@ function Drive() {
 
   return (
     <>
-      <Row className="mt-3">
+      <Row className="mt-1">
         <Col>
           <Card.Body className="justify-content-md-center ">
-            <Card className="col-sm-10 bg-secondary buttons container text-center">
+            <Card className="col-sm-7 bg-secondary buttons container text-center">
               <img
-                className="mt-3"
+                className="my-3 w-100"
                 src="http://70.121.160.191:8080/?action=stream"
                 alt="stream"
               ></img>
