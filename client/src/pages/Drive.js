@@ -6,7 +6,7 @@ import Data from '../components/RobotData';
 
 function Drive() {
   const [newSocket, setSocket] = useState(null);
-  const socket = io(process.env.SOCKET_URI || 'http://localhost:3000');
+  const socket = io('https://vroomba-time.herokuapp.com/drive');
   console.log(newSocket);
 
   window.addEventListener(
@@ -78,7 +78,7 @@ function Drive() {
     console.log('right command emitted');
   }
   useEffect(() => {
-    const socket = io(process.env.SOCKET_URI || 'http://localhost:3000');
+    const socket = io('https://vroomba-time.herokuapp.com/drive');
     setSocket(socket);
     socket.on('connect', () => {
       console.log('SOCKET CONNECTED');
