@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-// import schema from Book.js
+// import schema from Run.js
 const runSchema = require('./Run');
 
 const userSchema = new Schema(
@@ -21,10 +21,8 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    // set savedBooks to be an array of data that adheres to the bookSchema
     savedRuns: [runSchema],
   },
-  // set this to use virtual below
   {
     toJSON: {
       virtuals: true,

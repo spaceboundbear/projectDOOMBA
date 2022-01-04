@@ -62,14 +62,9 @@ db.once('open', () => {
       console.log(speed);
     });
 
-    socket.on('bumpLeft', (left) => {
-      io.emit('bumpLeft', left);
-      console.log(left);
-    });
-
-    socket.on('bumpRight', (right) => {
-      io.emit('bumpRight', right);
-      console.log(right);
+    socket.on('bump', (bump) => {
+      io.emit('bump', bump);
+      console.log(bump);
     });
   });
 });

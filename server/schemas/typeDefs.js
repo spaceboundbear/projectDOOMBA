@@ -5,8 +5,7 @@ const typeDefs = gql`
     runId: String
     date: String
     duration: Int
-    bumpLeft: Int
-    bumpRight: Int
+    bump: Int
     left: Int
     right: Int
     stop: Int

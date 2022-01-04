@@ -11,10 +11,7 @@ const runSchema = new Schema({
   duration: {
     type: Number,
   },
-  bumpLeft: {
-    type: Number,
-  },
-  bumpRight: {
+  bump: {
     type: Number,
   },
   stops: {

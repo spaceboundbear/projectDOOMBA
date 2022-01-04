@@ -5,9 +5,9 @@ import { ListGroup } from 'react-bootstrap';
 export default function Data() {
   let [bumpCount, setBumpCount] = useState(0);
   let [speed, setSpeed] = useState(0);
-  let [angle, setAngle] = useState(0);
+  let [angle, setAngle] = useState();
 
-  const socket = io('https://vroomba-time.herokuapp.com/drive');
+  const socket = io('http://localhost:3000');
 
   useEffect(() => {
     socket.on('bumpLeft', () => {
@@ -22,8 +22,9 @@ export default function Data() {
       speed = setSpeed(data);
     });
 
-    socket.on('angle', (data) => {
-      angle = setAngle(data);
+    socket.on('angle', (angle) => {
+      console.log('Angle:' + angle);
+      angle = setAngle(angle);
     });
   });
 
