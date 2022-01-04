@@ -93,7 +93,7 @@ function Drive() {
             <Card className="col-sm-7 bg-secondary buttons container text-center">
               <img
                 className="my-3 w-100"
-                src="http://70.121.160.191:8080/?action=stream"
+                src="https://70.121.160.191:8080/?action=stream"
                 alt="stream"
               ></img>
             </Card>
