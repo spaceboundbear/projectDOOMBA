@@ -52,9 +52,9 @@ db.once('open', () => {
       console.log(data);
     });
 
-    socket.on('angle', (angle) => {
-      io.emit('angle', angle);
-      console.log(angle);
+    socket.on('movement', (movement) => {
+      io.emit('movement', movement);
+      console.log(movement);
     });
 
     socket.on('speed', (speed) => {
@@ -65,6 +65,11 @@ db.once('open', () => {
     socket.on('bump', (bump) => {
       io.emit('bump', bump);
       console.log(bump);
+    });
+
+    socket.on('play', (data) => {
+      io.emit('play', data);
+      console.log(data);
     });
   });
 });

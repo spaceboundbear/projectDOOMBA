@@ -77,6 +77,17 @@ function Drive() {
     socket.emit('move', 'right');
     console.log('right command emitted');
   }
+
+  function songOne() {
+    socket.emit('play', 'songOne');
+    console.log('play song one emitted');
+  }
+
+  function songTwo() {
+    socket.emit('play', 'songTwo');
+    console.log('play song two emitted');
+  }
+
   useEffect(() => {
     const socket = io('http://localhost:3000');
     setSocket(socket);
