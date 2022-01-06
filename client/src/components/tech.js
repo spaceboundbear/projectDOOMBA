@@ -1,4 +1,4 @@
-import { FaReact, FaBootstrap, FaNodeJs } from 'react-icons/fa';
+import { FaReact, FaNodeJs } from 'react-icons/fa';
 import {
   SiMongodb,
   SiExpress,
@@ -22,12 +22,6 @@ const Technologies = [
     id: 3,
     name: 'SocketIO',
     icon: <SiSocketdotio />,
-  },
-
-  {
-    id: 4,
-    name: 'Bootstrap',
-    icon: <FaBootstrap />,
   },
   {
     id: 5,

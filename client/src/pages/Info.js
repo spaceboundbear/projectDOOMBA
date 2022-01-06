@@ -2,6 +2,7 @@ import { Container, Card, ListGroup, Row, Col } from 'react-bootstrap';
 import TechCards from '../components/techCards';
 import React from 'react';
 import tech from '../components/tech';
+import DummyFooter from '../components/DummyFooter';
 
 function Info() {
   return (
@@ -22,7 +23,7 @@ function Info() {
         </Card.Body>
       </Card>
       <Row>
-        <Col xs={6}>
+        <Col md={6}>
           <Card className="mt-3 bg-dark text-light">
             <Card.Body>
               <h2 className="m-2 text-center font-weight-bold">CHALLENGES</h2>
@@ -44,7 +45,7 @@ function Info() {
             </Card.Body>
           </Card>
         </Col>
-        <Col xs={6}>
+        <Col md={6}>
           <Card className="mt-3 bg-dark text-light">
             <Card.Body>
               <h2 className="m-2 text-center font-weight-bold">
@@ -69,6 +70,7 @@ function Info() {
           </Card>
         </Col>
       </Row>
+      <DummyFooter />
     </Container>
   );
 }

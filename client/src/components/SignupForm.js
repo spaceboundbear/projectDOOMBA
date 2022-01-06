@@ -7,16 +7,15 @@ import { useMutation } from '@apollo/react-hooks';
 import Auth from '../utils/auth';
 
 const SignupForm = () => {
+  // eslint-disable-next-line
   const [addUser, { error }] = useMutation(ADD_USER);
-  // set initial form state
   const [userFormData, setUserFormData] = useState({
     username: '',
     email: '',
     password: '',
   });
-  // set state for form validation
+
   const [validated] = useState(false);
-  // set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
   const handleInputChange = (event) => {
@@ -27,7 +26,6 @@ const SignupForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    // check if form has everything (as per react-bootstrap docs)
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();

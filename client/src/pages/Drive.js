@@ -6,7 +6,7 @@ import Data from '../components/RobotData';
 
 function Drive() {
   const [newSocket, setSocket] = useState(null);
-  const socket = io('http://localhost:3000');
+  const socket = io('https://vroomba-time.herokuapp.com/drive');
   console.log(newSocket);
 
   window.addEventListener(
@@ -80,16 +80,11 @@ function Drive() {
 
   function songOne() {
     socket.emit('play', 'songOne');
-    console.log('play song one emitted');
-  }
-
-  function songTwo() {
-    socket.emit('play', 'songTwo');
-    console.log('play song two emitted');
+    console.log('PLAYING: songOne');
   }
 
   useEffect(() => {
-    const socket = io('http://localhost:3000');
+    const socket = io('https://vroomba-time.herokuapp.com/drive');
     setSocket(socket);
     socket.on('connect', () => {
       console.log('SOCKET CONNECTED');
@@ -101,7 +96,7 @@ function Drive() {
       <Row className="mt-1">
         <Col>
           <Card.Body className="justify-content-md-center ">
-            <Card className="col-sm-7 bg-secondary buttons container text-center">
+            <Card className="col-sm-10 col-md-7 bg-secondary buttons container text-center">
               <img
                 className="my-3 w-100"
                 src="https://a1ef-2603-8081-6405-a88d-d984-38db-ef2b-c085.ngrok.io/?action=stream"
@@ -112,14 +107,14 @@ function Drive() {
         </Col>
       </Row>
       <Row>
-        <Col>
+        <Col md={8}>
           <Card.Body className="justify-content-md-center">
             <Card className="drive-buttons bg-dark buttons container text-center">
               <Row className="mt-2">
                 <Col className="">
                   <Button
                     size="lg"
-                    className="m-3 btn btn-secondary col-sm-6"
+                    className="my-3 btn btn-secondary col-sm-6 "
                     onClick={Forward}
                   >
                     FORWARD
@@ -130,21 +125,21 @@ function Drive() {
                 <Col>
                   <Button
                     size="lg"
-                    className="m-2 btn btn-secondary col-sm-3"
+                    className="mr-2 mt-2 btn btn-secondary col-sm-3"
                     onClick={Left}
                   >
                     LEFT
                   </Button>
                   <Button
                     size="lg"
-                    className="m-2 btn btn-danger col-sm-3"
+                    className="mr-2 mt-2 btn btn-danger col-sm-3"
                     onClick={Stop}
                   >
                     STOP
                   </Button>
                   <Button
                     size="lg"
-                    className="m-2 btn btn-secondary col-sm-3"
+                    className="mr-2 mt-2 btn btn-secondary col-sm-3"
                     onClick={Right}
                   >
                     RIGHT
@@ -155,10 +150,21 @@ function Drive() {
                 <Col className="pb-2">
                   <Button
                     size="lg"
-                    className="m-3 btn btn-secondary col-sm-6"
+                    className="mt-4 mb-3 btn btn-secondary col-sm-6"
                     onClick={Backward}
                   >
                     BACKWARD
+                  </Button>
+                </Col>
+              </Row>
+              <Row>
+                <Col className="pb-2">
+                  <Button
+                    size="lg"
+                    className="mt-1 mb-3 btn btn-danger col-sm-6"
+                    onClick={songOne}
+                  >
+                    BATTLE CRY
                   </Button>
                 </Col>
               </Row>

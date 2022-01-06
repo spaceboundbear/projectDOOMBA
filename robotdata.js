@@ -35,6 +35,11 @@ function main(r) {
     console.log('ROBOT CONNECTED');
   });
 
+  socket.on('close', () => {
+    robot.stop();
+    console.log('closing connection');
+  });
+
   socket.on('move', (data) => {
     console.log(data);
     if (data == 'forward') {
@@ -62,12 +67,6 @@ function main(r) {
     if (data == 'songOne') {
       console.log('PLAYING SONG ONE');
       robot.play(0);
-    } else if (data == 'songTwo') {
-      console.log('PLAYING SONG TWO');
-      robot.play(1);
-    } else if (data == 'songThree') {
-      console.log('PLAYING SONG THREE');
-      robot.play(2);
     }
   });
 }
@@ -114,7 +113,7 @@ var e = measure / 8;
 var ed = (measure * 3) / 16;
 var s = measure / 16;
 
-robot.setSong(1, [
+robot.setSong(0, [
   [70, s],
   [69, s],
   [70, e],
@@ -130,41 +129,4 @@ robot.setSong(1, [
   [67, ed],
   [67, s],
   [79, q],
-]);
-
-robot.setSong(2, [
-  [63, s],
-  [58, s],
-  [67, e],
-  [79, q],
-  [67, ed],
-  [67, s],
-  [79, q],
-  [66, ed],
-  [66, s],
-  [64, s / 2],
-  [63, s / 2],
-  [64, s],
-  [68, e],
-  [61, q],
-  [59, ed],
-  [58, s],
-]);
-
-robot.setSong(3, [
-  [67, q],
-  [67, q],
-  [67, q],
-  [63, ed],
-  [58, s],
-  [67, q],
-  [63, ed],
-  [58, s],
-  [67, h],
-  [74, q],
-  [74, q],
-  [74, q],
-  [63, ed],
-  [58, s],
-  [66, q],
 ]);
