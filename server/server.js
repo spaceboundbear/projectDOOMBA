@@ -48,6 +48,10 @@ db.once('open', () => {
       console.log(data);
     });
 
+    socket.on('active', (data) => {
+      io.emit('active', data);
+    });
+
     socket.on('robot', (data) => {
       console.log(data);
     });
