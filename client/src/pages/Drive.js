@@ -5,9 +5,7 @@ import { Card, Button, Row, Col } from 'react-bootstrap';
 import Data from '../components/RobotData';
 
 function Drive() {
-  const [newSocket, setSocket] = useState(null);
-  const socket = io('https://vroomba-time.herokuapp.com/drive');
-  console.log(newSocket);
+  const socket = io('localhost:3000');
 
   window.addEventListener(
     'keydown',
@@ -78,19 +76,6 @@ function Drive() {
     console.log('right command emitted');
   }
 
-  function songOne() {
-    socket.emit('play', 'songOne');
-    console.log('PLAYING: songOne');
-  }
-
-  useEffect(() => {
-    const socket = io('https://vroomba-time.herokuapp.com/drive');
-    setSocket(socket);
-    socket.on('connect', () => {
-      console.log('SOCKET CONNECTED');
-    });
-  }, [setSocket]);
-
   return (
     <>
       <Row className="mt-1">
@@ -99,7 +84,7 @@ function Drive() {
             <Card className="col-sm-10 col-md-7 bg-secondary buttons container text-center">
               <img
                 className="my-3 w-100"
-                src="https://47c4-2603-8081-6405-a88d-c881-733e-4916-b866.ngrok.io/?action=stream"
+                src="http://47c4-2603-8081-6405-a88d-c881-733e-4916-b866.ngrok.io/?action=stream"
                 alt="stream"
               ></img>
             </Card>
@@ -154,17 +139,6 @@ function Drive() {
                     onClick={Backward}
                   >
                     BACKWARD
-                  </Button>
-                </Col>
-              </Row>
-              <Row>
-                <Col className="pb-2">
-                  <Button
-                    size="lg"
-                    className="mt-1 mb-3 btn btn-danger col-sm-6"
-                    onClick={songOne}
-                  >
-                    BATTLE CRY
                   </Button>
                 </Col>
               </Row>
