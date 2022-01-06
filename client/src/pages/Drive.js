@@ -5,7 +5,7 @@ import { Card, Button, Row, Col } from 'react-bootstrap';
 import Data from '../components/RobotData';
 
 function Drive() {
-  const socket = io('https://vroomba-time.herokuapp.com/drive');
+  const socket = io('https://vroomba-time.herokuapp.com/');
   //test
   window.addEventListener(
     'keydown',
