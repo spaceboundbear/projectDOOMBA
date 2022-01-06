@@ -7,7 +7,7 @@ export default function Data() {
   let [speed, setSpeed] = useState(0);
   let [movement, setMovement] = useState('');
 
-  const socket = io('http://localhost:3000');
+  const socket = io('https://vroomba-time.herokuapp.com/drive');
 
   useEffect(() => {
     socket.on('active', (active) => {
