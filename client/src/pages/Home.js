@@ -1,6 +1,13 @@
 import { Card, Container } from 'react-bootstrap';
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import DummyFooter from '../components/DummyFooter';
+
+const styles = {
+  spacing: {
+    lineHeight: 1.6,
+  },
+};
 
 function Home() {
   return (
@@ -8,7 +15,7 @@ function Home() {
       <Card className="mt-5 bg-dark text-light">
         <Card.Body>
           <h1 className="m-4 font-weight-bold">WELCOME TO project.DOOMBA</h1>
-          <p className=" mt-4 h4 m-4">
+          <p style={styles.spacing} className=" mt-4 h4 m-4">
             The world is coming to an end, and it is by our own hands.
             Microsoft's new technology of microchipped Windows.11 and forced
             updates to oneDrive triggered The Robot Uprising, and there seems to
@@ -23,6 +30,7 @@ function Home() {
           </p>
         </Card.Body>
       </Card>
+      <DummyFooter />
     </Container>
   );
 }
