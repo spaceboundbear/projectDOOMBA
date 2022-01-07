@@ -1,70 +1,36 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  # Title: project.DOOMBA
+  ## Table of Contents
+  1.[Description](#description)</br>
+  2.[Installation](#installation)</br>
+  3.[Usage](#usage)</br>
+  4.[Contributors](#contributors)</br>
+  5.[Testing Info](#testing)</br>
+  6.[License Info](#license)</br>
+  7.[Questions](#questions)</br>  
 
-## Available Scripts
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  # <span id="desc"></span>
+  # Project Description: 
+  This project allows a user to drive and control their Roomba from anywhere in the world! Using React, SocketIO, Create2, and  ApolloQL
+  # <span id="installation"></span>
+  # PreRequisites and Install Info:
+  This app requires quite a few prerequisites, including a Roomba, a 7Pin Serial Port Cable, a Raspberry Pi with a battery, and a webcam. After running npm install from the root folder, ssh into your rasPi and drag the RobotApp folder to your rasPi. You will need ffmpeg-streamer and the proper drivers for your webcam and serialport cables. Follow the documentation for ffmpeg and driver installation/initialization to get your webcam running, since almost all webcam/linux drivers are different, and a little tricky. 
+  # <span id="usage"></span>
+  # Usage:
+  This project is mainly targeted toward those who have a love for robotics and full stack web development. This is a great place to get started with robotics and integrating a front end to control it.
+  # <span id="contributors"></span>
+  # Contributors:
+  Michael Fischer
+  # <span id="testing"></span>
+  # Testing Info: 
+  Mostly trial and error. Serial Port connection tests, fixing cors errors. React-Web-Dev tools on Chrome.
+  # <span id="license"></span>
+  # License:
+  MIT
+  # <span id="questions"></span>
+  # Questions:
+  Name: Michael Fischer  
+  Email: michael@spaceboundbear.com  
+  Github: [spaceboundbear](www.github.com/spaceboundbear)  
+  
