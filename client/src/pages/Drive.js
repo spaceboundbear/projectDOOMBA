@@ -156,16 +156,14 @@ function Drive() {
                 <Col className="pb-2">
                   <Button
                     size="lg"
-                    className="mt-1 mb-3 btn btn-secondary"
+                    className="mb-3 btn btn-secondary"
                     onClick={Dock}
                   >
                     RETURN HOME
                   </Button>
-                </Col>
-                <Col className="pb-2">
                   <Button
                     size="lg"
-                    className="mt-1 mb-3 btn btn-secondary"
+                    className="mb-3 btn btn-secondary"
                     onClick={playSong}
                   >
                     BATTLE CRY
