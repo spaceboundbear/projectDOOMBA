@@ -66,9 +66,9 @@ db.once('open', () => {
       console.log(speed);
     });
 
-    socket.on('bump', (bump) => {
-      io.emit('bump', bump);
-      console.log(bump);
+    socket.on('play', (data) => {
+      io.emit('play', data);
+      console.log(data);
     });
   });
 });

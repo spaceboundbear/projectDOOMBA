@@ -6,7 +6,7 @@ import Data from '../components/RobotData';
 
 function Drive() {
   const socket = io('https://vroomba-time.herokuapp.com/');
-  //test
+
   window.addEventListener(
     'keydown',
     (event) => {
@@ -76,6 +76,16 @@ function Drive() {
     console.log('right command emitted');
   }
 
+  function Dock() {
+    socket.emit('move', 'dock');
+    console.log('DOCKING COMMAND EMITTED');
+  }
+
+  function playSong() {
+    socket.emit('play', 'song');
+    console.log('DOCKING COMMAND EMITTED');
+  }
+
   return (
     <>
       <Row className="mt-1">
@@ -139,6 +149,26 @@ function Drive() {
                     onClick={Backward}
                   >
                     BACKWARD
+                  </Button>
+                </Col>
+              </Row>
+              <Row>
+                <Col className="pb-2">
+                  <Button
+                    size="lg"
+                    className="mt-4 mb-3 btn btn-secondary col-sm-6"
+                    onClick={Dock}
+                  >
+                    RETURN HOME
+                  </Button>
+                </Col>
+                <Col className="pb-2">
+                  <Button
+                    size="lg"
+                    className="mt-4 mb-3 btn btn-secondary col-sm-6"
+                    onClick={playSong}
+                  >
+                    BATTLE CRY
                   </Button>
                 </Col>
               </Row>
