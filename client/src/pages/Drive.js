@@ -3,6 +3,7 @@ import { io } from 'socket.io-client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button, Row, Col } from 'react-bootstrap';
 import Data from '../components/RobotData';
+import DummyFooter from '../components/DummyFooter';
 
 function Drive() {
   const socket = io('https://vroomba-time.herokuapp.com/');
@@ -109,7 +110,7 @@ function Drive() {
                 <Col className="">
                   <Button
                     size="lg"
-                    className="my-3 btn btn-secondary col-sm-6 "
+                    className="my-3 btn btn-secondary col-sm-5 "
                     onClick={Forward}
                   >
                     FORWARD
@@ -120,7 +121,7 @@ function Drive() {
                 <Col>
                   <Button
                     size="lg"
-                    className="mr-2 mt-2 btn btn-secondary col-sm-3"
+                    className="mr-2 mt-2  btn btn-secondary col-sm-3"
                     onClick={Left}
                   >
                     LEFT
@@ -141,29 +142,25 @@ function Drive() {
                   </Button>
                 </Col>
               </Row>
-              <Row>
+              <Row className="mb-4">
                 <Col className="pb-2">
                   <Button
                     size="lg"
-                    className="mt-4 mb-3 btn btn-secondary col-sm-6"
+                    className="mt-4 mr-2 btn btn-secondary col-sm-3"
+                    onClick={Dock}
+                  >
+                    GO HOME
+                  </Button>
+                  <Button
+                    size="lg"
+                    className="mt-4 mr-2 btn btn-secondary col-sm-3"
                     onClick={Backward}
                   >
                     BACKWARD
                   </Button>
-                </Col>
-              </Row>
-              <Row>
-                <Col className="pb-2">
                   <Button
                     size="lg"
-                    className="mb-3 mr-3 btn btn-secondary"
-                    onClick={Dock}
-                  >
-                    RETURN HOME
-                  </Button>
-                  <Button
-                    size="lg"
-                    className="mb-3 btn btn-secondary"
+                    className="mt-4 mr-2 btn btn-primary col-sm-3"
                     onClick={playSong}
                   >
                     BATTLE CRY
@@ -184,6 +181,7 @@ function Drive() {
           </Card.Body>
         </Col>
       </Row>
+      <DummyFooter />
     </>
   );
 }
