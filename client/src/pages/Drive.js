@@ -156,7 +156,7 @@ function Drive() {
                 <Col className="pb-2">
                   <Button
                     size="lg"
-                    className="mb-3 btn btn-secondary"
+                    className="mb-3 mr-3 btn btn-secondary"
                     onClick={Dock}
                   >
                     RETURN HOME
