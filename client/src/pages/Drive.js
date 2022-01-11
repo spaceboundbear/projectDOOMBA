@@ -84,7 +84,7 @@ function Drive() {
 
   function playSong() {
     socket.emit('play', 'song');
-    console.log('DOCKING COMMAND EMITTED');
+    console.log('SONG COMMAND EMITTED');
   }
 
   return (
@@ -156,7 +156,7 @@ function Drive() {
                     className="mt-4 mr-2 btn btn-secondary col-sm-3"
                     onClick={Backward}
                   >
-                    BACKWARD
+                    BACK
                   </Button>
                   <Button
                     size="lg"
