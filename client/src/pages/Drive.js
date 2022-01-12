@@ -52,16 +52,6 @@ function Drive() {
     true
   );
 
-  function startTimer() {
-    socket.emit('timer', 'start');
-    console.log('START TIME COMMAND EMIT');
-  }
-
-  function stopTimer() {
-    socket.emit('timer', 'stop');
-    console.log('STOP TIME COMMAND EMIT');
-  }
-
   function Forward() {
     socket.emit('move', 'forward');
     console.log('forward command emitted');
