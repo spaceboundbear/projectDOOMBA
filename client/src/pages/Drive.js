@@ -95,7 +95,7 @@ function Drive() {
             <Card className="col-sm-10 col-md-7 bg-secondary buttons container text-center">
               <img
                 className="my-3 w-100"
-                src="https://85e7-2603-8081-6405-a88d-bd36-ac77-ae60-b3d6.ngrok.io/?action=stream"
+                src="https://2aac-2603-8081-6405-a88d-5c0a-f7e4-8fba-c695.ngrok.io/?action=stream"
                 alt="stream"
               ></img>
             </Card>
