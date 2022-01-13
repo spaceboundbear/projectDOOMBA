@@ -39,7 +39,7 @@ db.once('open', () => {
   });
 
   const io = socketio(http, {
-    transports: ['websocket', 'polling'],
+    transports: ['websocket'],
   });
 
   io.on('connection', (socket) => {
