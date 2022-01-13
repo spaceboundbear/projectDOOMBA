@@ -39,10 +39,7 @@ db.once('open', () => {
   });
 
   const io = socketio(http, {
-    log: false,
-    agent: false,
-    origins: '*:*', // this is for the CORS browser error , I also use the cors npm module here
-    transports: ['websocket'],
+    transports: ['websocket', 'polling'],
   });
 
   io.on('connection', (socket) => {
