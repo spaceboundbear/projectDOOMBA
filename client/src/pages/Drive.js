@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { io } from 'socket.io-client';
+import React, { useEffect } from 'react';
+// import { io } from 'socket.io-client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button, Row, Col } from 'react-bootstrap';
 import Data from '../components/RobotData';
 import DummyFooter from '../components/DummyFooter';
-import {
-  startSocket,
-  disconnectSocket,
+/* import {
   Forward,
   Backward,
   Left,
@@ -14,18 +12,11 @@ import {
   Stop,
   playSong,
   Dock,
-} from '../socketio.service';
+} from '../socketio.service'; */
 
-// const socket = io('https://vroomba-time.herokuapp.com/');
+const socket = io('https://vroomba-time.herokuapp.com/');
 
 function Drive() {
-  useEffect(() => {
-    startSocket();
-    return () => {
-      disconnectSocket();
-    };
-  }, []);
-
   window.addEventListener(
     'keydown',
     (event) => {
@@ -70,7 +61,6 @@ function Drive() {
     true
   );
 
-  /*
   function Forward() {
     socket.emit('move', 'forward');
     console.log('forward command emitted');
@@ -104,7 +94,7 @@ function Drive() {
   function playSong() {
     socket.emit('play', 'song');
     console.log('SONG COMMAND EMITTED');
-  } */
+  }
 
   return (
     <>
