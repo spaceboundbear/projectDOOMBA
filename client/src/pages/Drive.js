@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // import { io } from 'socket.io-client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button, Row, Col } from 'react-bootstrap';
@@ -12,6 +12,8 @@ import {
   Stop,
   playSong,
   Dock,
+  startSocket,
+  disconnectSocket,
 } from '../socketio.service';
 
 // const socket = io('https://vroomba-time.herokuapp.com/');
@@ -61,7 +63,7 @@ function Drive() {
     true
   );
 
-   function Forward() {
+  function Forward() {
     socket.emit('move', 'forward');
     console.log('forward command emitted');
   }
@@ -95,6 +97,13 @@ function Drive() {
     socket.emit('play', 'song');
     console.log('SONG COMMAND EMITTED');
   } */
+
+  useEffect(() => {
+    startSocket();
+    return () => {
+      disconnectSocket();
+    };
+  }, []);
 
   return (
     <>
