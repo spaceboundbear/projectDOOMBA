@@ -3,7 +3,11 @@ import { io } from 'socket.io-client';
 let socket;
 
 export const startSocket = () => {
-  socket = io();
+  socket = io({
+    forceNew: false,
+    secure: true,
+    transports: ['websocket'],
+  });
   console.log('STARTING SOCKET');
 };
 

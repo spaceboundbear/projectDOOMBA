@@ -38,7 +38,12 @@ db.once('open', () => {
     console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
   });
 
-  const io = socketio(http);
+  const io = socketio(http, {
+    log: false,
+    agent: false,
+    origins: '*:*', // this is for the CORS browser error , I also use the cors npm module here
+    transports: ['websocket'],
+  });
 
   io.on('connection', (socket) => {
     console.log('NEW CONNECTION ESTABLISHED');
