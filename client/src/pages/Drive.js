@@ -4,14 +4,26 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button, Row, Col } from 'react-bootstrap';
 import Data from '../components/RobotData';
 import DummyFooter from '../components/DummyFooter';
+import {
+  startSocket,
+  disconnectSocket,
+  Forward,
+  Backward,
+  Left,
+  Right,
+  Stop,
+  playSong,
+  Dock,
+} from '../socketio.service';
 
 // const socket = io('https://vroomba-time.herokuapp.com/');
 
 function Drive() {
-  const [socket, setSocket] = useState(null);
-
   useEffect(() => {
-    setSocket(io('https://vroomba-time.herokuapp.com/'));
+    startSocket();
+    return () => {
+      disconnectSocket();
+    };
   }, []);
 
   window.addEventListener(
@@ -58,6 +70,7 @@ function Drive() {
     true
   );
 
+  /*
   function Forward() {
     socket.emit('move', 'forward');
     console.log('forward command emitted');
@@ -91,7 +104,7 @@ function Drive() {
   function playSong() {
     socket.emit('play', 'song');
     console.log('SONG COMMAND EMITTED');
-  }
+  } */
 
   return (
     <>
