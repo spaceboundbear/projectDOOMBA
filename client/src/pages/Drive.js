@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-// import { io } from 'socket.io-client';
+import React from 'react';
+import { io } from 'socket.io-client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button, Row, Col } from 'react-bootstrap';
 import Data from '../components/RobotData';
