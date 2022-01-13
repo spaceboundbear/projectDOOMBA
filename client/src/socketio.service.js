@@ -3,7 +3,7 @@ import { io } from 'socket.io-client';
 let socket;
 
 export const startSocket = () => {
-  socket = io('https://vroomba-time.herokuapp.com/');
+  socket = io();
   console.log('STARTING SOCKET');
 };
 
