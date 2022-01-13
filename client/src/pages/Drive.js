@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react'
 import { io } from 'socket.io-client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button, Row, Col } from 'react-bootstrap';
 import Data from '../components/RobotData';
 import DummyFooter from '../components/DummyFooter';
 
+// const socket = io('https://vroomba-time.herokuapp.com/');
+
 function Drive() {
-  const socket = io('https://vroomba-time.herokuapp.com/');
+
+  const [socket, setSocket] = useState(null)
+
+  useEffect(() => {
+    setSocket(io('https://vroomba-time.herokuapp.com/'));
+  }, [])
 
   window.addEventListener(
     'keydown',
@@ -86,6 +93,7 @@ function Drive() {
     socket.emit('play', 'song');
     console.log('SONG COMMAND EMITTED');
   }
+
 
   return (
     <>
