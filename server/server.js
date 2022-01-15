@@ -45,30 +45,14 @@ db.once('open', () => {
 
     socket.on('move', (data) => {
       io.emit('move', data);
-      console.log(data);
-    });
-
-    socket.on('active', (data) => {
-      io.emit('active', data);
-    });
-
-    socket.on('robot', (data) => {
-      console.log(data);
     });
 
     socket.on('movement', (movement) => {
       io.emit('movement', movement);
-      console.log(movement);
-    });
-
-    socket.on('speed', (speed) => {
-      io.emit('speed', speed);
-      console.log(speed);
     });
 
     socket.on('play', (data) => {
       io.emit('play', data);
-      console.log(data);
     });
 
     socket.on('disconnect', () => {

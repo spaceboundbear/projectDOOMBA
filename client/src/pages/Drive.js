@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-// import { io } from 'socket.io-client';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button, Row, Col } from 'react-bootstrap';
 import Data from '../components/RobotData';
@@ -16,90 +15,13 @@ import {
   disconnectSocket,
 } from '../socketio.service';
 
-// const socket = io('https://vroomba-time.herokuapp.com/');
-
 function Drive() {
-  /* window.addEventListener(
-    'keydown',
-    (event) => {
-      if (event.defaultPrevented) {
-        return;
-      }
-
-      switch (event.key) {
-        case 'ArrowDown':
-          socket.emit('move', 'backward');
-          console.log('arrow down press');
-          break;
-        case 'ArrowUp':
-          socket.emit('move', 'forward');
-          console.log('arrow up press');
-          break;
-        case 'ArrowLeft':
-          socket.emit('move', 'left');
-          console.log('arrow left press');
-          break;
-        case 'ArrowRight':
-          socket.emit('move', 'right');
-          console.log('arrow right press');
-          break;
-        default:
-          return;
-      }
-      event.preventDefault();
-    },
-    true
-  );
-
-  window.addEventListener(
-    'keyup',
-    (event) => {
-      if (event.defaultPrevented) {
-        return;
-      }
-      socket.emit('move', 'stop');
-      event.preventDefault();
-    },
-    true
-  );
-
-  function Forward() {
-    socket.emit('move', 'forward');
-    console.log('forward command emitted');
-  }
-
-  function Stop() {
-    socket.emit('move', 'stop');
-    console.log('stop command emitted');
-  }
-
-  function Backward() {
-    socket.emit('move', 'backward');
-    console.log('backward command emitted');
-  }
-
-  function Left() {
-    socket.emit('move', 'left');
-    console.log('left command emitted');
-  }
-
-  function Right() {
-    socket.emit('move', 'right');
-    console.log('right command emitted');
-  }
-
-  function Dock() {
-    socket.emit('move', 'dock');
-    console.log('DOCKING COMMAND EMITTED');
-  }
-
-  function playSong() {
-    socket.emit('play', 'song');
-    console.log('SONG COMMAND EMITTED');
-  } */
+  let [connection, setConnection] = useState('');
+  let [speed, setSpeed] = useState(0);
+  let [movement, setMovement] = useState('');
 
   useEffect(() => {
-    startSocket();
+    startSocket(setConnection);
     return () => {
       disconnectSocket();
     };
@@ -129,7 +51,9 @@ function Drive() {
                   <Button
                     size="lg"
                     className="my-3 btn btn-secondary col-sm-5 "
-                    onClick={Forward}
+                    onClick={() => {
+                      Forward(setMovement, setSpeed);
+                    }}
                   >
                     FORWARD
                   </Button>
@@ -140,21 +64,27 @@ function Drive() {
                   <Button
                     size="lg"
                     className="mr-2 mt-2  btn btn-secondary col-sm-3"
-                    onClick={Left}
+                    onClick={() => {
+                      Left(setMovement, setSpeed);
+                    }}
                   >
                     LEFT
                   </Button>
                   <Button
                     size="lg"
                     className="mr-2 mt-2 btn btn-danger col-sm-3"
-                    onClick={Stop}
+                    onClick={() => {
+                      Stop(setMovement, setSpeed);
+                    }}
                   >
                     STOP
                   </Button>
                   <Button
                     size="lg"
                     className="mr-2 mt-2 btn btn-secondary col-sm-3"
-                    onClick={Right}
+                    onClick={() => {
+                      Right(setMovement, setSpeed);
+                    }}
                   >
                     RIGHT
                   </Button>
@@ -165,14 +95,18 @@ function Drive() {
                   <Button
                     size="lg"
                     className="mt-4 mr-2 btn btn-secondary col-sm-3"
-                    onClick={Dock}
+                    onClick={() => {
+                      Dock(setMovement, setSpeed);
+                    }}
                   >
                     GO HOME
                   </Button>
                   <Button
                     size="lg"
                     className="mt-4 mr-2 btn btn-secondary col-sm-3"
-                    onClick={Backward}
+                    onClick={() => {
+                      Backward(setMovement, setSpeed);
+                    }}
                   >
                     BACK
                   </Button>
@@ -194,7 +128,7 @@ function Drive() {
               <h1 className="m-3 text-center text-light font-weight-bold">
                 DATA
               </h1>
-              <Data />
+              <Data movement={movement} speed={speed} connection={connection} />
             </Card>
           </Card.Body>
         </Col>

@@ -2,51 +2,53 @@ import { io } from 'socket.io-client';
 
 let socket;
 
-export const startSocket = () => {
-  socket = io({
-    forceNew: false,
-    secure: true,
-    transports: ['websocket'],
-  });
+export const startSocket = (setConnection) => {
+  socket = io();
   console.log('STARTING SOCKET');
+  setConnection('ACTIVE');
 };
 
 export const disconnectSocket = () => {
-  console.log('Disconnecting socket...');
+  console.log('DISCONNECTING SOCKET');
   if (socket) socket.disconnect();
 };
 
-export const Forward = () => {
+export const Forward = (setMovement, setSpeed) => {
   socket.emit('move', 'forward');
-  console.log('forward command emitted');
+  setMovement('FORWARD');
+  setSpeed(100);
 };
 
-export const Stop = () => {
+export const Stop = (setMovement, setSpeed) => {
   socket.emit('move', 'stop');
-  console.log('stop command emitted');
+  setMovement('STOPPED');
+  setSpeed(0);
 };
 
-export const Backward = () => {
+export const Backward = (setMovement, setSpeed) => {
   socket.emit('move', 'backward');
-  console.log('backward command emitted');
+  setMovement('BACKWARD');
+  setSpeed(-100);
 };
 
-export const Left = () => {
+export const Left = (setMovement, setSpeed) => {
   socket.emit('move', 'left');
-  console.log('left command emitted');
+  setMovement('LEFT');
+  setSpeed(100);
 };
 
-export const Right = () => {
+export const Right = (setMovement, setSpeed) => {
   socket.emit('move', 'right');
-  console.log('right command emitted');
+  setMovement('RIGHT');
+  setSpeed(100);
 };
 
-export const Dock = () => {
+export const Dock = (setMovement, setSpeed) => {
   socket.emit('move', 'dock');
-  console.log('DOCKING COMMAND EMITTED');
+  setMovement('DOCKING');
+  setSpeed(100);
 };
 
 export const playSong = () => {
   socket.emit('play', 'song');
-  console.log('SONG COMMAND EMITTED');
 };
