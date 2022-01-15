@@ -38,9 +38,7 @@ db.once('open', () => {
     console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
   });
 
-  const io = socketio(http, {
-    transports: ['websocket'],
-  });
+  const io = socketio(http);
 
   io.on('connection', (socket) => {
     console.log('NEW CONNECTION ESTABLISHED');
@@ -71,6 +69,10 @@ db.once('open', () => {
     socket.on('play', (data) => {
       io.emit('play', data);
       console.log(data);
+    });
+
+    socket.on('disconnect', () => {
+      io.emit('USER DISCONNECTED');
     });
   });
 });
