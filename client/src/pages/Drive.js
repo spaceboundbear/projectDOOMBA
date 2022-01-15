@@ -35,7 +35,7 @@ function Drive() {
             <Card className="col-sm-10 col-md-7 bg-secondary buttons container text-center">
               <img
                 className="my-3 w-100"
-                src="https://15d0-2603-8081-6405-a88d-f481-bea5-4372-e850.ngrok.io/stream/video.h264"
+                src="https://15d0-2603-8081-6405-a88d-f481-bea5-4372-e850.ngrok.io/?action=stream"
                 alt="stream"
               ></img>
             </Card>
