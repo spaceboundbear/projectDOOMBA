@@ -12,14 +12,14 @@
 ![unknown](https://user-images.githubusercontent.com/86039208/150265772-baf1a407-e4a5-401b-ad7c-28953c7f808f.png)
 
   # <span id="desc"></span>
-  # Project Description: 
-  This project allows a user to drive and control their Roomba from anywhere in the world! Using React, SocketIO, Create2, and  ApolloQL
+  # Description: 
+  This allows a user to drive and control their Roomba from anywhere in the world! Using React, SocketIO, Create2, and  ApolloQL
   # <span id="installation"></span>
   # PreRequisites and Install Info:
   This app requires quite a few prerequisites, including a Roomba, a 7Pin Serial Port Cable, a Raspberry Pi with a battery, and a webcam. After running npm install from the root folder, ssh into your rasPi and drag the RobotApp folder to your rasPi. You will need ffmpeg-streamer and the proper drivers for your webcam and serialport cables. Follow the documentation for ffmpeg and driver installation/initialization to get your webcam running, since almost all webcam/linux drivers are different, and a little tricky. 
   # <span id="usage"></span>
   # Usage:
-  This project is mainly targeted toward those who have a love for robotics and full stack web development. This is a great place to get started with robotics and integrating a front end to control it.
+  This is mainly targeted toward those who have a love for robotics and full stack web development. This is a great place to get started with robotics and integrating a front end to control it.
   # <span id="contributors"></span>
   # Contributors:
   Michael Fischer
